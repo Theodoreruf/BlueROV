@@ -1,0 +1,38 @@
+from gpiozero import LED
+from time import sleep
+
+# activation LEDs
+lLeft = LED(2)
+lRight = LED(3)
+forward = LED(4)
+reverse = LED(5)
+rLeft = LED(6)
+rRight = LED(13)
+ascend = LED(19)
+descend = LED(26)
+
+while True:
+    descend.off()
+    lLeft.on()
+    sleep(1)
+    lLeft.off()
+    lRight.on()
+    sleep(1)
+    lRight.off()
+    forward.on()
+    sleep(1)
+    forward.off()
+    reverse.on()
+    sleep(1)
+    reverse.off()
+    rLeft.on()
+    sleep(1)
+    rLeft.off()
+    rRight.on()
+    sleep(1)
+    rRight.off()
+    ascend.on()
+    sleep(1)
+    ascend.off()
+    descend.on()
+    sleep(1)

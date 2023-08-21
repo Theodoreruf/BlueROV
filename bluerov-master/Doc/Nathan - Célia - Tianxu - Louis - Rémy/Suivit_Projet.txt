@@ -1,0 +1,137 @@
+SUIVIT DE PROJET 
+
+* BlueRov S8 
+* Nathan Leroy - Tianxu Li - Célia Sinigaglia - Rémy Baillet - Louis Bruschet 
+
+
+OBJECTIFS:
+
+- Mise en place d’un module GPS :
+    *  Récupèrer la position à la surface 
+    
+- Analyse et traitement d’image : 
+    * Détection (OpenCV) d’un poisson, encapsulation sur vidéo 
+    * Division du flux vidéo
+    * Recherche su l'optimisation de latence vidéo (si possible) 
+    
+- Mise en place de modes de navigation :
+    * Routine de mesure/ photographie (immersion selon profondeur, navigation, arrêt, mesure)  
+    * Processus de remontée pour récupérer les coordonnées GPS 
+    * Processus de remontée/ retour bateau sous un certain seuil de batterie 
+    
+- Mise à jour de l’interface 
+    * Approche  du code de QGroundControl
+    * Ajout de fonctionnalité à l’interface ( choix modes navigation/ encapsulation poissons, ...)
+    
+- Mise à jour du GitLab
+    * Mettre à jour le Wiki/ GitLab 
+    * Regrouper l’ensemble des données disponibles
+
+
+
+
+SUIVIT DE SEANCE
+
+Séance du 16/02/2021 
+
+Programme de la séance : 
+- Louis : Recherche et mise en place du module GPS
+- Rémy : Division du flux vidéo 
+- Célia : Choix de la méthode d'analyse vidéo 
+- Nathan : Recapitulatif de l'ensemble des ressources disponibles 
+
+Recapitulatif de la séance :
+- Louis 
+    * Commande d’un module GPS: 
+        https://www.gotronic.fr/art-module-gps-usb-25951.html
+    * Création d'un code de configuration du module GPS
+    * Doc :
+        https://gpsd.gitlab.io/gpsd/gpsd_json.html
+        https://wiki.52pi.com/index.php/USB-Port-GPS_Module_SKU:EZ-0048
+        
+
+- Rémy 
+    * Impossibilité de travailler sur le flux, batterie vide
+    * Assistance Célia sur OpenCV + recherche 
+    * Assistance Louis sur Raspberry Pi4 
+
+
+- Célia 
+    * Recherche sur deeplearning
+    * Recherche sur detection de mouvement 
+    * Choix de la detection de mouvement
+    * Configuration OpenCV
+    
+- Nathan 
+    * Mise à jour et tri du git (sous dossier Tanguy / Bastien-Vincent / nous)
+    * Mise en place d'un suivit général 
+    * Recherche sur les codes possible pour l'interface QGC 
+
+
+
+Objectifs prochaine séance :
+
+- Récupérer le module GPS pour faire une implémentation + test
+- Division flux vidéo 
+- Coder l'analyse OpenCV sur des vidéos blueRov
+- Découvrir et commencer à manipuler le code de QGC
+
+
+
+SUIVIT DE SEANCE
+
+__________________________________________________
+
+			   Séance du 02/03/2021 
+__________________________________________________
+
+Programme de la séance : 
+- Louis : Mise en place du module GPS
+- Rémy : Recherche sur protocole de communication PC/BlueRov 
+- Célia : Analyse vidéo 
+- Nathan : Mise en place d'une VM, telechargement de QGC et découverte de son code source   
+- Tianxu : Recherche des commandes pour le robot
+
+Recapitulatif de la séance :
+
+Nathan :
+- Problème d'installation d'installation de GQC sur VM
+- Prise de conscience de la compléxité du code QGC
+- Création de notre propre interface Qt sur Python 
+
+Célia :
+- Recherche détection mouvement sur open cv
+- Recherche détection contours sur open cv
+- Acquisition d'une vidéo sous-marine filmée par le BlueRov
+- Rédaction d'un premier code pour détecter les contours des formes sur une image
+
+Louis : 
+- GPS pas disponible 
+- Aide sur la recherche des méthodes à appliquer (détection de contour sélectionnée) 
+- Recherches sur les filtres à appliquer pour cette détection
+
+Rémy :
+- Soutien pour la mise en place des différentes VM et des outils
+- Recherche sur la communication du BlueRov vers le PC et premières recherches sur le MAVLink
+
+Tianxu
+- A installé une machine virtuelle.
+- A appris pymavlink (une implémentation python du protocole MAVLink) et l'ai essayé.
+- A appris SITL (un simulateur de bluerov)
+
+
+SUIVI DE SEANCE
+
+__________________________________________________
+
+			   Séance du 23/03/2021 
+__________________________________________________
+
+Célia:
+- Lecture d'une vidéo avec open cv
+- Détection des poissons (et des rochers/algues) dans la vidéo
+
+Louis: 
+-essais de correction module gps en changeant l'alimentation en USB to TTL
+- ajout d'une antenne (non fonctionnelle) 
+- M.Dubreuil try to correct!

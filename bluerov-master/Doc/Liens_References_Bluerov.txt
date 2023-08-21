@@ -1,0 +1,11 @@
+https://github.com/bluerobotics/companion
+https://github.com/bluerobotics/qgroundcontrol
+https://github.com/ArduPilot/ardupilot/tree/master/ArduSub
+
+https://www.ardusub.com/developers/opencv.html
+https://www.ardusub.com/developers/gps-positioning.html
+https://www.ardusub.com/developers/rc-input-and-output.html
+https://www.ardusub.com/developers/pymavlink.html
+https://www.ardusub.com/developers/sitl.html %%Simulateur
+
+https://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html

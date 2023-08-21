@@ -1,0 +1,69 @@
+Debut
+
+05/10/20
+OBJECTIFS SEANCE : -Proposer une date pour construire le robot      -S'approprier le simulateur
+Déroulement de la séance :
+    - Etude de datasheet autour du BlueRov et du simulateur
+    - Etude vidéo de montage du BlueRov
+    - Installation ArduSub et QGroundControl pour controller le BlueRov sur une machine virtuel Ubuntu
+    - Installation QGroundControl sur windows
+    - Envoi Datasheet + vidéo d'assemblage du BlueRov
+    
+08/10/20
+OBJECTIFS SEANCE : -Montage du robot
+Déroulement de la séance : 
+    - Vérification du premier montage de l'ancien groupe
+    - Montage et cablage de la partie électronique
+    - Rechargement de la batterie pour faire des tests lors de la prochaine séance
+    
+14/10/20
+OBJECTIFS SEANCE : -Montage du robot
+Déroulement de la séance :
+    - Fin du montage du robot
+    - Tests électroniques
+
+21/10/20
+OBJECTIFS SEANCE : -Prise en main du robot
+Déroulement de la séance :
+    - Pilotage du Bluerov via QGroundControl et une manette virtuelle
+    - Calibration du compas et du gyroscope
+    - Connexion à la caméra
+Prochaine séance : 
+    - Vérifier les lampes et l'étanchéité du robot.
+    - Pilotage avec une vraie manette (plus pratique pour observer le comportement du robot)
+    - Piloter le robot avec un programme Python
+
+SEANCE 24/11/2020
+Manipulations sur le robot impossibles à cause du confinement
+OBJECTIFS DE SEANCE :
+
+créer une ébauche de programme permettant de contrôler le robot en fonction de la position et de la distance des QRcodes.
+créer les fonctions de détections nécessaires au fonctionnement du programme : dans un premier temps faire des essais de détection de QRcodes en temps réel à la caméra de l'ordinateur et trouver un moyen d'obtenir leur orientation
+
+Travail fait :
+-ébauche de programme 
+
+programme capable de lire un QRcode en temps réel à la caméra de l'ordi, un autre capable d'entourer d'un rectangle rouge un QRcode pris sur une image fixe mais seulement droite
+
+PROCHAINS OBJECTIFS :
+-arriver à afficher le rectangle rouge autour du QRcode en temps réel à la caméra pour ensuite pouvoir avoir la position du QRcode et son orientation
+
+SEANCE 03/12
+Objecftis atteints : code qui entoure en temps réel un QRcode et qui arrive à avoir les coordonnées de ses quatres coins sous la forme d'un tableau de polygon, chaque 
+coin est ainsi représenté par ses coordonées (x,y). Il faut maintenant arriver à extraire ces coordonnées afin de pouvoir traiter la position du QRcode.
+
+Objectifs prochaine séance : 
+    - extraire coordonnées x et y des coins du QRcode puis créer les fonctions permettant d'obtenir son orientation, sa distance, sa position etc par rapport à la caméra
+    
+SEANCE 21/12
+La PixHawk a rencontré un disfonctionnement, le robot n'est plus commandable mais la partie vision/réseau (Companion) est toujours opérable
+Au lieu de travailler directement sur le BlueRov, nous nous sommes adapté et nous avons installé Companion sur une Raspberry Pi 3B avec une caméra connectée.
+Sans la PixHawk les avancements sur la commande restent théorique mais l'avancement continu sur la partie algorithme de perception du QR code.
+
+SEANCE 20/01
+Nous avons monté la nouvelle PixHawk et réparé le BlueRov (partie commande des moteurs est opérationnelle par QGroundControl).
+Nous avons pu constater que notre algortihme de perception fonctionne mais la commande non.
+Les raisons pour lesquels la commande ne fonctionne pas sont que nous n'avions pas fait assez de recherche sur la connexion MAVlink.
+En effet après étude du programme de Tanguy sur lequel nous nous étions basé, nous nous sommes rendu compte qu'il ouvrait la connexion MAVlink de la PixHawk vers le Surface Computer (QGround Control)
+Notre but était d'ouvrir une liaison entre la Raspberry Pi (Companion) vers la PixHawk (Ardusub) pour rendre le robot autonomme.
+Il nous faut donc changer la connexion PyMavLink de notre programme.
